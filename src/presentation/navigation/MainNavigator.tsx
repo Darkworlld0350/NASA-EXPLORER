@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AsteroidsScreen from "../screens/asteroids/AsteroidsScreen";
+import MarsPhotosScreen from '../screens/mars/MarsPhotosScreen';
 import HomeScreen from "../../ui/screens/HomeScreen";
 
 const Stack = createNativeStackNavigator();
@@ -12,6 +13,7 @@ const TabNavigator = () => (
   <Tab.Navigator>
     <Tab.Screen name="APOD" component={HomeScreen} />
     <Tab.Screen name="Asteroids" component={AsteroidsScreen} />
+    <Tab.Screen name="Mars" component={MarsPhotosScreen} />
   </Tab.Navigator>
 );
 
