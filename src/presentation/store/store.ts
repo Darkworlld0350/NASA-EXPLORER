@@ -3,6 +3,7 @@ import apodReducer from './apodSlice';
 import asteroidReducer from './asteroidsSlice';
 import marsPhotosReducer from './marsPhotosSlice';
 import marsWeatherReducer from './marsWeatherSlice';
+import epicReducer from './epicSlice';
 
 
 export const store = configureStore({
@@ -11,7 +12,7 @@ export const store = configureStore({
     asteroids: asteroidReducer,
     marsPhotos: marsPhotosReducer,
     marsWeather: marsWeatherReducer,
-
+    epic: epicReducer,
   },
 });
 
