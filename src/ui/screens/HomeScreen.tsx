@@ -4,6 +4,7 @@ import { useHomeViewModel } from '../../ui/screens/home/HomeViewModel';
 
 const HomeScreen = () => {
   const { data, loading, error } = useHomeViewModel();
+console.log('[DEBUG] APOD data from ViewModel:', data);
 
   if (loading) return <ActivityIndicator size="large" color="blue" />;
   if (error) return <Text>Error: {error}</Text>;
@@ -25,3 +26,4 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
+

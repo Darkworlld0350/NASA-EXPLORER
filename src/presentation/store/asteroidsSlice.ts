@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { Asteroid } from '../../domain/entities/Asteroid';
-import { GetAsteroidsUseCase } from '../../domain/usecases/GetAsteroidsByDateUseCase';
+import { GetAsteroidsByDateUseCase } from '../../domain/usecases/GetAsteroidsByDateUseCase';
 import { AsteroidRepositoryImpl } from '../../data/repositories/AsteroidRepositoryImpl.ts';
 
 interface AsteroidState {
@@ -15,7 +15,7 @@ const initialState: AsteroidState = {
   error: null,
 };
 
-const useCase = new GetAsteroidsUseCase(new AsteroidRepositoryImpl());
+const useCase = new GetAsteroidsByDateUseCase(new AsteroidRepositoryImpl());
 
 export const fetchAsteroids = createAsyncThunk(
   'asteroids/fetch',

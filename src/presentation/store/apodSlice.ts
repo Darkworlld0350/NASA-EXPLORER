@@ -4,6 +4,7 @@ import { APODRepositoryImpl } from '../../data/repositories/APODRepositoryImpl';
 import { GetTodayPictureUseCase } from '../../domain/usecases/GetTodayPictureUseCase';
 
 interface APODState {
+  [x: string]: any;
   data: APOD | null;
   loading: boolean;
   error: string | null;
