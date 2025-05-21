@@ -10,12 +10,10 @@ export class GetTodayPictureUseCase {
   async execute(): Promise<APOD> {
     try {
       const data = await this.repo.getTodayPicture();
-      console.log('[DEBUG] Resultado desde API:', data);
-      await StorageService.save<APOD>(CACHE_KEY, data); // 👈 aseguras tipo explícito aquí
+      await StorageService.save<APOD>(CACHE_KEY, data);
       return data;
     } catch (e) {
-      console.warn('Fallo en red, usando caché local');
-      const cached = await StorageService.load<APOD>(CACHE_KEY); // 👈 aquí también el tipo es correcto
+      const cached = await StorageService.load<APOD>(CACHE_KEY); 
       if (cached) return cached;
 
       throw new Error('No hay datos disponibles ni conexión');

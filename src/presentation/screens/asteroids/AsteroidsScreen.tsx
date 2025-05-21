@@ -3,6 +3,7 @@ import { View, Text, FlatList, ActivityIndicator } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAsteroids } from '../../store/asteroidsSlice';
 import { RootState, AppDispatch } from '../../store/store';
+import Animated, { FadeInLeft } from 'react-native-reanimated';
 import dayjs from 'dayjs';
 
 const AsteroidsScreen = () => {
@@ -23,12 +24,13 @@ const AsteroidsScreen = () => {
       data={data}
       keyExtractor={item => item.id}
       renderItem={({ item }) => (
-        <View style={{ padding: 12 }}>
+      <Animated.View entering={FadeInLeft.duration(500)} style={{ marginBottom: 10, backgroundColor: '#eee', padding: 10, borderRadius: 8 }}>
           <Text>{item.name}</Text>
+          <Text> {item.date}</Text>
           <Text>Velocidad: {item.speedKph} km/h</Text>
           <Text>Distancia: {item.missDistanceKm} km</Text>
-          <Text>Peligroso: {item.isHazardous ? 'Sí' : 'No'}</Text>
-        </View>
+          <Text>Peligroso: {item.isHazardous ? 'SI' : 'NO'}</Text>
+        </Animated.View>
       )}
     />
   );

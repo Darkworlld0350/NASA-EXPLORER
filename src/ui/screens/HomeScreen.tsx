@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, Text, Image, ScrollView, ActivityIndicator } from 'react-native';
+import { View, Text, Image, ScrollView, ActivityIndicator, useWindowDimensions } from 'react-native';
 import { useHomeViewModel } from '../../ui/screens/home/HomeViewModel';
+import Animated, { BounceIn, Layout, } from 'react-native-reanimated';
+
 
 const HomeScreen = () => {
   const { data, loading, error } = useHomeViewModel();
-console.log('[DEBUG] APOD data from ViewModel:', data);
+  const { width } = useWindowDimensions();
 
   if (loading) return <ActivityIndicator size="large" color="blue" />;
   if (error) return <Text>Error: {error}</Text>;
@@ -14,9 +16,11 @@ console.log('[DEBUG] APOD data from ViewModel:', data);
     <ScrollView contentContainerStyle={{ padding: 16 }}>
       <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{data.title}</Text>
       {data.mediaType === 'image' && (
-        <Image
+        <Animated.Image
+          entering={BounceIn.duration(500)}
+          layout={Layout.springify()}
           source={{ uri: data.imageUrl }}
-          style={{ width: '100%', height: 300, marginVertical: 16 }}
+          style={{ width: '100%', height: 300, marginVertical: 1, borderRadius: 8 }}
           resizeMode="cover"
         />
       )}

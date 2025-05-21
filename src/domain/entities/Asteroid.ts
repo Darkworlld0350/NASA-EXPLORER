@@ -1,4 +1,7 @@
+import { ReactNode } from "react";
+
 export interface Asteroid {
+  date: ReactNode;
   id: string;
   name: string;
   approachDate: string;
