@@ -12,8 +12,8 @@ const Tab = createBottomTabNavigator();
 const TabNavigator = () => (
   <Tab.Navigator>
     <Tab.Screen name="APOD" component={HomeScreen} />
-    <Tab.Screen name="Asteroids" component={AsteroidsScreen} />
-    <Tab.Screen name="Mars" component={MarsPhotosScreen} />
+    <Tab.Screen name="ASTEROIDS" component={AsteroidsScreen} />
+    <Tab.Screen name="MARS" component={MarsPhotosScreen} />
   </Tab.Navigator>
 );
 

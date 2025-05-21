@@ -1,6 +1,8 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    "types": ["@types/react", "@types/react-native"],
     "strict": true
-  }
+  },
+  "include": ["env.d.ts", "src"]
 }
