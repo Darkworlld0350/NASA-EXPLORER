@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import apodReducer from './apodSlice';
 import asteroidReducer from './asteroidsSlice';
 import marsPhotosReducer from './marsPhotosSlice';
+import marsWeatherReducer from './marsWeatherSlice';
 
 
 export const store = configureStore({
@@ -9,6 +10,7 @@ export const store = configureStore({
     apod: apodReducer,
     asteroids: asteroidReducer,
     marsPhotos: marsPhotosReducer,
+    marsWeather: marsWeatherReducer,
 
   },
 });
