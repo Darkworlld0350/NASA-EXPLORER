@@ -15,11 +15,11 @@ const Tab = createBottomTabNavigator();
 const TabNavigator = () => (
   <Tab.Navigator>
     <Tab.Screen name="APOD" component={HomeScreen} />
-    <Tab.Screen name="CLIMA" component={MarsWeatherScreen} />
-    <Tab.Screen name="ASTEROIDES" component={AsteroidsScreen} />
     <Tab.Screen name="MARTE" component={MarsPhotosScreen} />
     <Tab.Screen name="TIERRA" component={EpicScreen} />
-    <Tab.Screen name="Buscar Imágenes" component={ImageSearchScreen} />
+    <Tab.Screen name="BUSCAR IMAGENES" component={ImageSearchScreen} />
+    <Tab.Screen name="CLIMA" component={MarsWeatherScreen} />
+    <Tab.Screen name="ASTEROIDES" component={AsteroidsScreen} />
   </Tab.Navigator>
 )
 
