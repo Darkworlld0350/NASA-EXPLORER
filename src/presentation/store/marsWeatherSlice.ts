@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { GetMarsWeatherUseCase } from '../../domain/usecases/GetMarsWeatherUseCase';
+import GetMarsWeatherUseCase from '../../domain/usecases/GetMarsWeatherUseCase'; // ✅ default import
 import { MarsWeather } from '../../domain/entities/MarsWeather';
-import { MarsWeatherRepositoryImpl } from '../../data/repositories/MarsWeatherRepositoryImpl';
+import { RepositoryFactory } from '../../data/factories/RepositoryFactory'; // ✅ factory pattern
 
 interface MarsWeatherState {
   data: MarsWeather | null;
@@ -15,11 +15,17 @@ const initialState: MarsWeatherState = {
   error: null,
 };
 
-const useCase = new GetMarsWeatherUseCase(new MarsWeatherRepositoryImpl());
+// ✅ Instancia con Factory (sin error)
+const useCase = new GetMarsWeatherUseCase(
+  RepositoryFactory.createMarsWeatherRepository()
+);
 
-export const fetchMarsWeather = createAsyncThunk('weather/fetch', async () => {
-  return await useCase.execute();
-});
+export const fetchMarsWeather = createAsyncThunk(
+  'weather/fetch',
+  async () => {
+    return await useCase.execute();
+  }
+);
 
 const marsWeatherSlice = createSlice({
   name: 'marsWeather',

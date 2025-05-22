@@ -1,16 +1,17 @@
-import { AsteroidRepository } from '../repositories/AsteroidRepository.ts';
+import { AsteroidRepository } from '../repositories/AsteroidRepository';
 import { Asteroid } from '../entities/Asteroid';
 import { StorageService } from '../../core/storage/StorageService';
-import { RepositoryFactory } from '../../data/factories/RepositoryFactory.js';
 
 const CACHE_KEY = 'ASTEROIDS_CACHE';
 
 export class GetAsteroidsByDateUseCase {
   private repo: AsteroidRepository;
 
-  constructor() {
-    this.repo = RepositoryFactory.createAsteroidRepository();
+  // ✅ Aceptamos el repositorio como parámetro (para poder usar RepositoryFactory afuera)
+  constructor(repo: AsteroidRepository) {
+    this.repo = repo;
   }
+
   async execute(startDate: string, endDate: string): Promise<Asteroid[]> {
     try {
       const data = await this.repo.getAsteroidsByDate(startDate, endDate);

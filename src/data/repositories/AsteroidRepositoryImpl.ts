@@ -1,4 +1,4 @@
-import { AsteroidRepository } from '../../domain/repositories/AsteroidRepository.ts';
+import { AsteroidRepository } from '../../domain/repositories/AsteroidRepository.js';
 import { getAsteroidsByDate } from '../datasources/NeoWsRemoteDataSource.ts';
 import { mapNeoDtoToEntity } from '../mappers/NearEarthObjectMapper.ts';
 import { Asteroid } from '../../domain/entities/Asteroid';

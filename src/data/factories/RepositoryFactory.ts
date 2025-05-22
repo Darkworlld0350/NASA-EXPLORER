@@ -3,6 +3,7 @@ import { MarsPhotoRepositoryImpl } from '../repositories/MarsPhotoRepositoryImpl
 import { MarsWeatherRepository } from '../../domain/repositories/MarsWeatherRepository';
 import { MarsWeatherRepositoryImpl } from '../repositories/MarsWeatherRepositoryImpl';
 import { AsteroidRepositoryImpl } from '../repositories/AsteroidRepositoryImpl';
+import { AsteroidRepository } from '../../domain/repositories/AsteroidRepository';
 import { NasaMediaRepository } from '../../domain/repositories/NasaMediaRepository';
 import { NasaMediaRepositoryImpl } from '../repositories/NasaMediaRepositoryImpl';
 import { EpicImageRepository } from '../../domain/repositories/EpicImageRepository';
@@ -27,7 +28,7 @@ export class RepositoryFactory {
     return new MarsPhotoRepositoryImpl();
   }
 
-  static createAsteroidRepository() {
+  static createAsteroidRepository(): AsteroidRepository {
     return new AsteroidRepositoryImpl();
   }
 

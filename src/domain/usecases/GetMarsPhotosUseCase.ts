@@ -1,16 +1,12 @@
-import { MarsPhotoRepository } from "../repositories/MarsPhotoRepository";
-import { MarsPhoto } from "../entities/MarsPhoto";
-import { StorageService } from "../../core/storage/StorageService";
-import { RepositoryFactory } from '../../data/factories/RepositoryFactory';
+// src/domain/usecases/GetMarsPhotosUseCase.ts
+import { MarsPhotoRepository } from '../repositories/MarsPhotoRepository';
+import { MarsPhoto } from '../entities/MarsPhoto';
+import { StorageService } from '../../core/storage/StorageService';
 
-const CACHE_KEY = "MARS_PHOTOS_CACHE";
+const CACHE_KEY = 'MARS_PHOTOS_CACHE';
 
 export class GetMarsPhotosUseCase {
-  private repo: MarsPhotoRepository;
-
-  constructor() {
-    this.repo = RepositoryFactory.createMarsPhotoRepository();
-  }
+  constructor(private repo: MarsPhotoRepository) {}
 
   async execute(sol: number): Promise<MarsPhoto[]> {
     try {
@@ -23,10 +19,7 @@ export class GetMarsPhotosUseCase {
       if (cached && Array.isArray(cached) && cached.length > 0) {
         return cached;
       }
-
       throw new Error("No hay fotos guardadas en caché y no hay conexión.");
     }
   }
 }
-
-console.warn("Fallo en red, usando caché local");
