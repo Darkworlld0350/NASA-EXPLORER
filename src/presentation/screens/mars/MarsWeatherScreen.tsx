@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Text, View, ActivityIndicator, ScrollView } from "react-native";
+import { Text, View, ActivityIndicator } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMarsWeather } from "../../store/marsWeatherSlice";
 import { AppDispatch, RootState } from "../../store/store";

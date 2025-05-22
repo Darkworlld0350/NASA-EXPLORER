@@ -25,21 +25,6 @@ const MarsPhotosScreen = () => {
     },
   });
 
-  const headerStyle = useAnimatedStyle(() => {
-    return {
-      opacity: interpolate(scrollY.value, [0, 150], [1, 0], Extrapolate.CLAMP),
-      transform: [
-        {
-          translateY: interpolate(
-            scrollY.value,
-            [0, 150],
-            [0, -30],
-            Extrapolate.CLAMP
-          ),
-        },
-      ],
-    };
-  });
 
   useEffect(() => {
     dispatch(fetchMarsPhotos(1000)); // Día marciano "sol" arbitrario
@@ -50,7 +35,7 @@ const MarsPhotosScreen = () => {
 
   return (
     <View style={{ flex: 1, backgroundColor: "#f2f2f2" }}>
-      <Animated.Text style={[styles.title, headerStyle]}>
+      <Animated.Text style={[styles.title]}>
         Fotos de Marte
       </Animated.Text>
 

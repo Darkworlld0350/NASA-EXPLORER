@@ -1,11 +1,11 @@
 import React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import AsteroidsScreen from "../screens/asteroids/AsteroidsScreen";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import AsteroidsScreen from '../screens/asteroids/AsteroidsScreen';
 import MarsPhotosScreen from '../screens/mars/MarsPhotosScreen';
-import HomeScreen from "../../ui/screens/HomeScreen";
-import MarsWeatherScreen from "../screens/mars/MarsWeatherScreen";
+import HomeScreen from '../../ui/screens/search/HomeScreen';
+import MarsWeatherScreen from '../screens/mars/MarsWeatherScreen';
 import EpicScreen from '../screens/epic/EpicScreen';
 import ImageSearchScreen from '../screens/search/ImageSearchScreen';
 

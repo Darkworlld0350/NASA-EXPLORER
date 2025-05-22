@@ -16,7 +16,7 @@ const ImageSearchScreen = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>();
-  const { onSearch, data, loading, error, loadMore, loadingMore } = useSearchViewModel();
+  const { onSearch, data, loading, error } = useSearchViewModel();
 
   const scrollY = useSharedValue(0);
 
