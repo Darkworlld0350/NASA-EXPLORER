@@ -11,16 +11,29 @@ export const searchNasaMedia = createAsyncThunk(
   }
 );
 
+export const fetchSearchPage = createAsyncThunk(
+  'search/fetchPage',
+  async ({ query, page }: { query: string; page: number }) => {
+    return await useCase.execute(query, page);
+  }
+);
+
 interface SearchState {
+  query: string;
   data: NasaMediaItem[];
+  page: number;
   loading: boolean;
+  loadingMore: boolean;
   error: string | null;
 }
 
 const initialState: SearchState = {
-  data: [],
-  loading: false,
-  error: null,
+    data: [],
+    loading: false,
+    error: null,
+    query: '',
+    page: 0,
+    loadingMore: false
 };
 
 const searchSlice = createSlice({
@@ -40,7 +53,20 @@ const searchSlice = createSlice({
       .addCase(searchNasaMedia.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message ?? 'Error buscando';
-      });
+      })
+      .addCase(fetchSearchPage.pending, state => {
+        state.loadingMore = true;
+        })
+        .addCase(fetchSearchPage.fulfilled, (state, action) => {
+        state.data = [...state.data, ...action.payload];
+        state.page += 1;
+        state.loadingMore = false;
+        })
+        .addCase(fetchSearchPage.rejected, (state, action) => {
+        state.loadingMore = false;
+        state.error = action.error.message ?? 'Error cargando más';
+        });
+
   },
 });
 

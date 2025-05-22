@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { NasaMediaItem } from '../../domain/entities/NasaMedia';
 
-export const getNasaMediaByQuery = async (query: string): Promise<NasaMediaItem[]> => {
-  const res = await axios.get(`https://images-api.nasa.gov/search?q=${encodeURIComponent(query)}`);
+export const getNasaMediaByQuery = async (
+  query: string,
+  page: number = 1
+): Promise<NasaMediaItem[]> => {  const res = await axios.get(`https://images-api.nasa.gov/search?q=${encodeURIComponent(query)}`);
   const items = res.data.collection?.items ?? [];
 
   return items.map((item: any) => ({

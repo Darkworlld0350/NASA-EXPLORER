@@ -5,7 +5,8 @@ import { NasaMediaRepositoryImpl } from '../../data/repositories/NasaMediaReposi
 export class SearchNasaMediaUseCase {
   private repo: NasaMediaRepository = new NasaMediaRepositoryImpl();
 
-  async execute(query: string): Promise<NasaMediaItem[]> {
-    return await this.repo.search(query);
-  }
+  async execute(query: string, page = 1): Promise<NasaMediaItem[]> {
+  return this.repo.search(query, page);
+}
+
 }
