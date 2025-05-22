@@ -3,7 +3,7 @@ import { FlatList, Image, Text, View, ActivityIndicator } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMarsPhotos } from "../../store/marsPhotosSlice";
 import { AppDispatch, RootState } from "../../store/store";
-import Animated, { SlideInLeft } from "react-native-reanimated";
+import Animated, { FadeInUp } from "react-native-reanimated";
 
 const MarsPhotosScreen = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -24,7 +24,7 @@ const MarsPhotosScreen = () => {
       keyExtractor={(item) => item.id.toString()}
       renderItem={({ item }) => (
         <Animated.View
-          entering={SlideInLeft.duration(600)}
+          entering={FadeInUp.duration(500)}
           style={{ padding: 10 }}
         >
           <Image

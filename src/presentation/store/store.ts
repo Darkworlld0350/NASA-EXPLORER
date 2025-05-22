@@ -4,6 +4,7 @@ import asteroidReducer from './asteroidsSlice';
 import marsPhotosReducer from './marsPhotosSlice';
 import marsWeatherReducer from './marsWeatherSlice';
 import epicReducer from './epicSlice';
+import searchReducer from './searchSlice';
 
 
 export const store = configureStore({
@@ -13,6 +14,7 @@ export const store = configureStore({
     marsPhotos: marsPhotosReducer,
     marsWeather: marsWeatherReducer,
     epic: epicReducer,
+    search: searchReducer,
   },
 });
 

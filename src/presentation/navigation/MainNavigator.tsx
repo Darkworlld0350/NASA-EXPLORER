@@ -7,6 +7,7 @@ import MarsPhotosScreen from '../screens/mars/MarsPhotosScreen';
 import HomeScreen from "../../ui/screens/HomeScreen";
 import MarsWeatherScreen from "../screens/mars/MarsWeatherScreen";
 import EpicScreen from '../screens/epic/EpicScreen';
+import ImageSearchScreen from '../screens/search/ImageSearchScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -18,6 +19,7 @@ const TabNavigator = () => (
     <Tab.Screen name="ASTEROIDES" component={AsteroidsScreen} />
     <Tab.Screen name="MARTE" component={MarsPhotosScreen} />
     <Tab.Screen name="TIERRA" component={EpicScreen} />
+    <Tab.Screen name="Buscar Imágenes" component={ImageSearchScreen} />
   </Tab.Navigator>
 )
 
