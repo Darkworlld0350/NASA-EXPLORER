@@ -1,10 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { APOD } from '../../domain/entities/APOD';
-import { APODRepositoryImpl } from '../../data/repositories/APODRepositoryImpl';
 import { GetTodayPictureUseCase } from '../../domain/usecases/GetTodayPictureUseCase';
+import { RepositoryFactory } from '../../data/factories/RepositoryFactory'; 
 
 interface APODState {
-  [x: string]: any;
   data: APOD | null;
   loading: boolean;
   error: string | null;
@@ -16,7 +15,9 @@ const initialState: APODState = {
   error: null,
 };
 
-const useCase = new GetTodayPictureUseCase(new APODRepositoryImpl());
+const useCase = new GetTodayPictureUseCase(
+  RepositoryFactory.createAPODRepository()
+);
 
 export const fetchApod = createAsyncThunk('apod/fetch', async () => {
   return await useCase.execute();

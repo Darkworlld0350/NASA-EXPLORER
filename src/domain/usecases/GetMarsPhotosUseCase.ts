@@ -1,11 +1,16 @@
 import { MarsPhotoRepository } from "../repositories/MarsPhotoRepository";
 import { MarsPhoto } from "../entities/MarsPhoto";
 import { StorageService } from "../../core/storage/StorageService";
+import { RepositoryFactory } from '../../data/factories/RepositoryFactory';
 
 const CACHE_KEY = "MARS_PHOTOS_CACHE";
 
 export class GetMarsPhotosUseCase {
-  constructor(private repo: MarsPhotoRepository) {}
+  private repo: MarsPhotoRepository;
+
+  constructor() {
+    this.repo = RepositoryFactory.createMarsPhotoRepository();
+  }
 
   async execute(sol: number): Promise<MarsPhoto[]> {
     try {

@@ -1,12 +1,15 @@
 import { NasaMediaRepository } from '../repositories/NasaMediaRepository';
 import { NasaMediaItem } from '../entities/NasaMedia';
-import { NasaMediaRepositoryImpl } from '../../data/repositories/NasaMediaRepositoryImpl';
+import { RepositoryFactory } from '../../data/factories/RepositoryFactory';
 
 export class SearchNasaMediaUseCase {
-  private repo: NasaMediaRepository = new NasaMediaRepositoryImpl();
+  private repo: NasaMediaRepository;
+
+  constructor() {
+    this.repo = RepositoryFactory.createNasaMediaRepository();
+  }
 
   async execute(query: string, page = 1): Promise<NasaMediaItem[]> {
-  return this.repo.search(query, page);
-}
-
+    return this.repo.search(query, page);
+  }
 }

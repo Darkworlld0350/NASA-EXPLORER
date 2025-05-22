@@ -1,11 +1,16 @@
 import { EpicImageRepository } from '../repositories/EpicImageRepository';
 import { EpicImage } from '../entities/EpicImage';
 import { StorageService } from '../../core/storage/StorageService';
+import { RepositoryFactory } from '../../data/factories/RepositoryFactory';
 
 const CACHE_KEY = 'EPIC_IMAGES_CACHE';
 
 export class GetEpicImagesUseCase {
-  constructor(private repo: EpicImageRepository) {}
+  private repo: EpicImageRepository;
+
+  constructor() {
+    this.repo = RepositoryFactory.createEpicImageRepository();
+  }
 
   async execute(): Promise<EpicImage[]> {
     try {

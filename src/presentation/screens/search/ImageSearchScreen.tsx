@@ -6,6 +6,7 @@ import Animated, { Extrapolate, FadeInUp, interpolate, useAnimatedScrollHandler,
 
 const AnimatedFlatList = Animated.FlatList<any>;
 
+
 type FormData = {
   query: string;
 };
