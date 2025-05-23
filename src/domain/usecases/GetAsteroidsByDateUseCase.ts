@@ -7,7 +7,6 @@ const CACHE_KEY = 'ASTEROIDS_CACHE';
 export class GetAsteroidsByDateUseCase {
   private repo: AsteroidRepository;
 
-  // ✅ Aceptamos el repositorio como parámetro (para poder usar RepositoryFactory afuera)
   constructor(repo: AsteroidRepository) {
     this.repo = repo;
   }

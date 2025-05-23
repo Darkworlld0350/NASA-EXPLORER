@@ -1,4 +1,3 @@
-// src/domain/usecases/GetMarsPhotosUseCase.ts
 import { MarsPhotoRepository } from '../repositories/MarsPhotoRepository';
 import { MarsPhoto } from '../entities/MarsPhoto';
 import { StorageService } from '../../core/storage/StorageService';

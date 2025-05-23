@@ -1,5 +1,3 @@
-// src/store/slices/asteroidSlice.ts
-
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { Asteroid } from '../../domain/entities/Asteroid';
 import { GetAsteroidsByDateUseCase } from '../../domain/usecases/GetAsteroidsByDateUseCase';
@@ -17,12 +15,12 @@ const initialState: AsteroidState = {
   error: null,
 };
 
-// ✅ Instanciamos el caso de uso correctamente usando el Factory
+
 const useCase = new GetAsteroidsByDateUseCase(
   RepositoryFactory.createAsteroidRepository()
 );
 
-// ✅ AsyncThunk que recibe un rango de fechas
+
 export const fetchAsteroids = createAsyncThunk(
   'asteroids/fetch',
   async ({ start, end }: { start: string; end: string }) => {

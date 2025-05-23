@@ -1,14 +1,10 @@
 import React, { useEffect } from "react";
-import { FlatList, Image, Text, View, ActivityIndicator } from "react-native";
+import { Image, Text, View, ActivityIndicator } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMarsPhotos } from "../../store/marsPhotosSlice";
 import { AppDispatch, RootState } from "../../store/store";
-import Animated, { FadeInUp, useSharedValue,
-  useAnimatedScrollHandler,
-  useAnimatedStyle,
-  interpolate,
-  Extrapolate, } from "react-native-reanimated";
-import { StyleSheet } from 'react-native'; // ✅ correcto
+import Animated, { FadeInUp, useSharedValue, useAnimatedScrollHandler} from "react-native-reanimated";
+import { StyleSheet } from 'react-native';
 
 
 const MarsPhotosScreen = () => {
@@ -27,7 +23,7 @@ const MarsPhotosScreen = () => {
 
 
   useEffect(() => {
-    dispatch(fetchMarsPhotos(1000)); // Día marciano "sol" arbitrario
+    dispatch(fetchMarsPhotos(1000));
   }, []);
 
   if (loading) return <ActivityIndicator size="large" />;

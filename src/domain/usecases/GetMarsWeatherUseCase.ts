@@ -1,4 +1,3 @@
-// src/domain/usecases/GetMarsWeatherUseCase.ts
 import { MarsWeatherRepository } from '../repositories/MarsWeatherRepository';
 import { MarsWeather } from '../entities/MarsWeather';
 import { StorageService } from '../../core/storage/StorageService';

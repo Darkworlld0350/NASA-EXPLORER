@@ -7,7 +7,6 @@ const CACHE_KEY = 'EPIC_IMAGES_CACHE';
 export class GetEpicImagesUseCase {
   private repo: EpicImageRepository;
 
-  // ✅ Aceptamos el repo como parámetro
   constructor(repo: EpicImageRepository) {
     this.repo = repo;
   }
